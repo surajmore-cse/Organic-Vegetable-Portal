@@ -1,0 +1,125 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Organic Vegetable Portal - login </title>
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <style>
+    .login {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('{% static "assets/img/signup.jpg" %}') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .glass-form {
+        background: rgba(18, 17, 17, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 30px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        width: 350px;
+    }
+
+    .glass-form .form-control {
+        border-radius: 5px;
+        background: rgba(11, 10, 10, 0.2);
+        color: #fff;
+    }
+
+    .glass-form .form-control::placeholder {
+        color: #eee;
+    }
+
+    .glass-form .btn {
+        width: 100%;
+        background: #007BFF;
+        color: white;
+    }
+
+    /* FIX NAVBAR COLOR TO MATCH OTHER PAGES */
+        header nav a,
+        header ul li a,
+        .nav-link {
+            color: black !important;
+            font-weight: normal !important;
+            text-decoration: none !important;
+        }
+
+        /* HOVER EFFECT */
+        header nav a:hover,
+        .nav-link:hover {
+            color: #ffd700 !important;
+        }
+  </style>
+</head>
+
+<body class="contact-page">
+
+{% include 'header.html' %}
+
+<main class="main">
+
+<section id="login" class="login section">
+
+<div class="col-lg-6">
+
+<center>
+{% for x in messages %}
+<div class="alert alert-warning alert-dismissible fade show">
+  <strong style="color:red;">{{x}}</strong>
+</div>
+{% endfor %}
+</center>
+
+<center>
+<form action="{% url 'login' %}" method="POST" class="p-4 shadow glass-form">
+
+{% csrf_token %}
+
+<!-- ✅ VERY IMPORTANT FIX -->
+<input type="hidden" name="next" value="{{ request.GET.next }}">
+
+<h3 class="text-center mb-4">Login</h3>
+
+<div class="form-group mb-3">
+  <input type="text" class="form-control" placeholder="Your username" name="username" required>
+</div>
+
+<div class="form-group mb-3">
+  <input type="password" class="form-control" placeholder="Your Password" name="password" required>
+</div>
+
+<div class="form-group mb-3">
+  <input type="submit" value="Login" class="btn btn-primary py-3 px-5">
+</div>
+
+</form>
+</center>
+
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% load custom_filters %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bill</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h2 { color: #007bff; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        .total { font-weight: bold; color: #28a745; }
+    </style>
+</head>
+<body>
+    <h2>Order Bill</h2>
+    <p><strong>Name:</strong> {{ order.customer_name }}</p>
+    <p><strong>Phone:</strong> {{ order.phone }}</p>
+    <p><strong>Address:</strong> {{ order.address }}</p>
+    <p><strong>Payment Method:</strong> {{ order.payment_method }}</p>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity (kg)</th>
+            <th>Price (₹)</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.product.price_per_kg|floatformat:2 }} x {{ item.quantity }} = ₹{{ item.product.price_per_kg|mul:item.quantity|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2" class="total">Total</td>
+            <td class="total">₹{{ total_amount|floatformat:2 }}</td>
+        </tr>
+    </table>
+</body>
+</html>

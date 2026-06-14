@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact</title>
+    <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        background: #f8f9fa;
+      }
+      .contact-container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-control {
+        border-radius: 50px;
+        padding: 12px;
+      }
+      .btn-primary {
+        border-radius: 50px;
+        padding: 12px;
+        font-weight: bold;
+      }
+      .form-label {
+        font-weight: 600;
+      }
+      .alert {
+        border-radius: 10px;
+      }
+      .google-map {
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'header.html' %}
+      
+    <!-- Page Title -->  
+    <div class="page-title accent-background" style="background-color: #C5E1A5;">
+      <div class="container">
+        <h1 style="color:rgb(29, 135, 50);">Contact</h1>
+      </div>
+    </div>
+
+    <main class="main">
+
+      <div class="container mt-5">
+        <!-- Google Map -->
+        <div class="google-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.756682920441!2d73.93924877496111!3d18.4493534826305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2e983d5704615%3A0x3530c89f414881d5!2sShewalwadi%2C%20Pune%2C%20Maharashtra%20412308!5e0!3m2!1sen!2sin!4v1740978714779!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="contact-container">
+          <h3 class="text-center mb-4 text-primary">Get in Touch</h3>
+
+          <!-- Display Django Messages -->
+          {% for x in messages %}
+          <div id="myAlert" class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+            <strong style="color: green">{{ x }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <script>
+            setTimeout(() => document.getElementById("myAlert").style.display = "none", 3000);
+          </script>
+          {% endfor %}
+
+          <!-- Contact Form -->
+          <form action="{% url 'reg' %}" method="POST" name="contactForm">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label"><i class="bi bi-person-fill"></i> Your Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"><i class="bi bi-envelope-fill"></i> Your Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"><i class="bi bi-phone-fill"></i> Contact No.</label>
+              <input type="text" class="form-control" name="phone" placeholder="Enter your contact number" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"><i class="bi bi-chat-left-text-fill"></i> Message</label>
+              <textarea class="form-control" name="message" rows="4" placeholder="Write your message here" required></textarea>
+            </div>
+
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary w-100"><i class="bi bi-send"></i> Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

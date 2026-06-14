@@ -1,0 +1,53 @@
+{% load static %}
+
+<header id="header" class="header d-flex align-items-center sticky-top" style="background-color:rgb(16,114,16)">
+
+  <div class="container d-flex align-items-center">
+
+    <!-- Logo -->
+    <a href="{% url 'Home' %}" class="logo d-flex align-items-center me-auto">
+      <h1 class="sitename d-flex align-items-center">
+        <img src="{% static 'assets/img/icon.jpg' %}" style="height:40px;margin-right:10px;">
+        ORGANIC VEGETABLE PORTAL
+      </h1>
+    </a>
+
+    <!-- ✅ FIX: REQUIRED FOR main.js -->
+    <button class="mobile-nav-toggle d-xl-none bi bi-list"></button>
+
+    <!-- Navigation -->
+    <nav id="navmenu" class="navmenu">
+      <ul class="d-flex align-items-center">
+
+        <li><a href="{% url 'Home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'reg' %}">Contact</a></li>
+        <li><a href="{% url 'bulk_order' %}">Order</a></li>
+
+        {% if user.is_authenticated %}
+
+          {% if user.is_superuser %}
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          {% endif %}
+
+          
+
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+
+          <li>
+            <div style="width:35px;height:35px;border-radius:50%;background:#28a745;color:white;display:flex;align-items:center;justify-content:center;">
+              {{ user.username|first|upper }}
+            </div>
+          </li>
+
+        {% else %}
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+
+      </ul>
+    </nav>
+
+  </div>
+</header>

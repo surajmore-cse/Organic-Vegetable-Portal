@@ -1,0 +1,145 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Organic Vegetable Portal - About </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+ <!-- Vendor CSS Files -->
+ <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+ 
+ <!-- Main CSS File -->
+ <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="about-page">
+
+  {%include 'header.html'%}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title accent-background" style="background-color: #C5E1A5;">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0" style="color:rgb(29, 135, 50);">About</h1>
+        <nav class="breadcrumbs">
+
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+<!-- About Section -->
+<section id="about" class="about section">
+
+  <div class="container">
+
+    <div class="row position-relative">
+
+      <div class="col-lg-7 about-img" data-aos="zoom-in" data-aos-delay="300">
+        <img src="{%static 'assets/img/about.jpg' %}"" alt="Organic Vegetables">
+      </div>
+
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="inner-title">Fresh, Organic, and Sustainable</h2>
+        <div class="our-story">
+          <h4>Since 2010</h4>
+          <h3>Our Story</h3>
+          <p>We started our journey with a simple mission – to provide fresh, organic, and pesticide-free vegetables directly from farmers to your doorstep. Our platform connects local farmers with health-conscious consumers, ensuring transparency, quality, and sustainability.</p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>100% organic and pesticide-free vegetables</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Direct farm-to-table supply chain</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Supporting local farmers and sustainable farming</span></li>
+          </ul>
+          <p>Our commitment to healthy eating and environmental conservation drives us to ensure that every vegetable you receive is fresh, natural, and responsibly sourced. Join us in making a healthier choice for you and the planet.</p>
+
+          <div class="watch-video d-flex align-items-center position-relative">
+            <i class="bi bi-play-circle"></i>
+          <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox stretched-link">Watch Video</a></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->
+
+
+ 
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Clients</h2>
+        <p></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0 clients-wrap">
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-1.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-2.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-3.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-4.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-5.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-6.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-7.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="{%static 'assets/img/clients/client-8.png' %}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+  </main>
+
+   {% include 'footer.html'%}
+
+</body>
+
+</html>

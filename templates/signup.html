@@ -1,0 +1,161 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Organic Vegetable Portal - sign-up </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Company
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Updated: Jul 31 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    /* Background image for the whole page */
+    .signup-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('{% static "assets/img/signup.jpg" %}') no-repeat center center fixed;
+        background-size: cover;
+    }
+    
+    /* Transparent form background (No blur) */
+    .glass-form {
+        background: rgba(219, 205, 205, 0.1); /* 10% transparency */
+        border: 2px solid rgba(7, 6, 6, 0.2); /* Light border */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Light shadow */
+    }
+
+    .glass-form .form-control {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(224, 209, 209, 0.2);
+        color: #fff;
+    }
+    
+    
+    /* Disable blur */
+    .glass-form {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    </style>
+    
+</head>
+
+<body class="contact-page">
+
+  {%include 'header.html'%}
+
+  <main class="main">
+
+    <!-- Page Title -->
+
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <div class="signup-container">
+    <div class="col-md-4">
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center">
+                    {{ message }}
+                </div>
+
+                <!--Popup Alert -->
+                <script>
+                    alert("{{ message }}");
+                </script>
+            {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'signup' %}" method="POST" class="p-4 shadow rounded glass-form">
+            {% csrf_token %}
+            <h3 class="text-center mb-4 text-white">Sign Up</h3>
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="User Name" name="username" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Surname Name" name="surname" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Mobile Number" name="mobile" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="email" class="form-control" placeholder="Your Email" name="email" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="password" class="form-control" placeholder="Enter Your Password" name="password" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="password" class="form-control" placeholder="Confirm Your Password" name="password2" required>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Sign Up" class="btn btn-primary w-100">
+            </div>
+
+            <!--Login Link -->
+            <div class="text-center mt-3">
+                <p style="color:white;">
+                    Already registered?
+                    <a href="{% url 'login' %}" style="color:yellow; font-weight:bold;">
+                        Login here
+                    </a>
+                </p>
+            </div>
+
+        </form>
+    </div>
+</div>
+           
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+</body>
+
+</html>

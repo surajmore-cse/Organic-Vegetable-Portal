@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulk Order</title>
+
+    <!-- Favicon -->
+    <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+
+    <!-- CSS -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: url("{% static 'assets/img/order.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-title {
+            background: rgba(192, 201, 182, 0.32);
+            text-align: center;
+            padding: 15px;
+        }
+
+        .main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        form {
+            background: rgba(164, 151, 151, 0.18);
+            backdrop-filter: blur(12px);
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0px 6px 25px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        th {
+            background: rgba(0, 123, 255, 0.85);
+            color: white;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #product-price {
+            font-weight: bold;
+            color: yellow;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #155323;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        h3 {
+            text-align: center;
+            color: white;
+        }
+
+        header a,
+        header a h1 {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        /* FIX NAVBAR COLOR TO MATCH OTHER PAGES */
+        header nav a,
+        header ul li a,
+        .nav-link {
+            color: black !important;
+            font-weight: normal !important;
+            text-decoration: none !important;
+        }
+
+        /* HOVER EFFECT */
+        header nav a:hover,
+        .nav-link:hover {
+            color: #ffd700 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+{% include 'header.html' %}
+
+<div class="page-title">
+    <h1 style="color:white;">Order Here</h1>
+</div>
+
+<main class="main">
+
+    <!-- Add Item Form -->
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Select Products</legend>
+
+            {{ item_form.as_p }}
+
+            <!-- ✅ PRICE DISPLAY -->
+            <p id="product-price"></p>
+
+            <button type="submit" name="add_item">
+                Add to Order
+            </button>
+        </fieldset>
+    </form>
+
+    <!-- Selected Items -->
+    <h3>Selected Items</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in selected_items %}
+            <tr>
+                <td>{{ item.product_name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total: ₹{{ total_price }}</h3>
+
+    <!-- Checkout Form -->
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Customer Details</legend>
+
+            {{ order_form.as_p }}
+
+        </fieldset>
+
+        <button type="submit" name="place_order">
+            Place Order
+        </button>
+    </form>
+
+</main>
+
+<!-- ✅ FINAL WORKING SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const productSelect = document.getElementById("id_product");
+    const priceBox = document.getElementById("product-price");
+
+    const productPrices = {
+        {% for product in products %}
+            "{{ product.id }}": "{{ product.price_per_kg }}",
+        {% endfor %}
+    };
+
+    function updatePrice() {
+
+        if (!productSelect) return;
+
+        const selectedId = productSelect.value;
+
+        if (!selectedId) {
+            priceBox.innerText = "";
+            return;
+        }
+
+        const price = productPrices[selectedId];
+        const name = productSelect.options[productSelect.selectedIndex].text;
+
+        priceBox.innerText = "Selected: " + name + " | Price: ₹" + price + "/kg";
+    }
+
+    productSelect.addEventListener("change", updatePrice);
+});
+</script>
+
+</body>
+</html>

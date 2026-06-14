@@ -1,0 +1,251 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Our Services - Organic Vegetables Portal</title>
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css" rel="stylesheet' %}">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    /* Page Title */
+    .page-title {
+      background: #2d6a4f;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    /* Services Section */
+    .services-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.03);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      margin-top: 15px;
+      color: #2d6a4f;
+      font-weight: bold;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title accent-background">
+      <div
+        class="container d-lg-flex justify-content-between align-items-center"
+      >
+        <h1 class="mb-2 mb-lg-0">Services</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'Home' %}">Home</a></li>
+            <li class="current">Services</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- End Page Title -->
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>Our Services</h1>
+    <p>We offer high-quality organic solutions for a healthier lifestyle.</p>
+  </div>
+
+  <div class="container services-container">
+    <div class="row">
+
+      <!-- Freshness Guaranteed -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/fresh.jpg' %}" alt="Freshness Guaranteed">
+          <h3>Freshness Guaranteed 🍃</h3>
+          <p>We take pride in delivering vegetables that are fresh, crisp, and full of nutrients. From the moment they are harvested, our vegetables are stored and transported under optimal conditions to preserve their flavor, texture, and nutritional value. Unlike conventional supermarket produce that may sit on shelves for days, our farm-fresh vegetables reach your home at their peak freshness—without artificial preservatives or excessive handling.</p>
+        </div>
+      </div>
+
+      <!-- Organic Farming Practices -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/farm.jpg' %}" alt="Organic Farming Practices">
+          <h3>Organic Farming Practices  🌾</h3>
+          <p>Our vegetables are grown using strict organic farming methods, ensuring they are 100% free from harmful pesticides, synthetic fertilizers, and GMOs (Genetically Modified Organisms). Instead, we use natural compost, crop rotation, and biological pest control to maintain healthy soil and plants. This means that every vegetable you buy from us is not only safer for your health but also better for the environment.</p>
+        </div>
+      </div>
+
+      <!-- Farm-to-Table Delivery -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/delivery.jpg' %}" alt="Farm-to-Table Delivery">
+          <h3>Farm-to-Table Delivery  🚛</h3>
+          <p>We bridge the gap between local organic farmers and consumers through our direct farm-to-table delivery system. This eliminates unnecessary middlemen, reducing costs and ensuring maximum freshness. With just a few clicks, you can have your favorite organic vegetables delivered straight to your doorstep—saving you time and effort while supporting local, sustainable agriculture.</p>
+        </div>
+      </div>
+
+      <!-- Organic Farming Workshops -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/workshop.jpg' %}" alt="Organic Farming Workshops">
+          <h3>Organic Farming Workshops  👨‍🌾</h3>
+          <p>Interested in learning how to grow your own organic vegetables? Our workshops are designed for beginners and experienced gardeners alike. We cover:
+            ✅ Soil preparation techniques
+            ✅ Natural pest control methods
+            ✅ Composting & organic fertilizers
+            ✅ Seasonal planting guides
+            These workshops are perfect for eco-conscious individuals, home gardeners, and aspiring organic farmers who want to develop sustainable farming skills.</p>
+        </div>
+      </div>
+
+      <!-- Organic Subscription Boxes -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/subscription.jpg' %}" alt="Organic Subscription Boxes">
+          <h3>Organic Subscription Boxes  📦</h3>
+          <p>Never run out of fresh, organic vegetables again! Our subscription service allows you to receive a carefully curated box of seasonal organic vegetables every week, tailored to your preferences. Choose from different box sizes and customize your orders. This service ensures:
+            ✅ Convenience – No need to visit the store
+            ✅ Freshness – Direct from farm to your home
+            ✅ Variety – Enjoy different vegetables every week
+            ✅ Healthier Meals – Encourage a nutritious diet with fresh produce</p>
+        </div>
+      </div>
+
+      <!-- Sustainable Packaging -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/eco-packaging.jpg' %}" alt="Sustainable Packaging">
+          <h3>Sustainable Packaging  🌱</h3>
+          <p>We believe that organic food should come with eco-friendly packaging. Our vegetables are delivered in:
+            ♻ Biodegradable, compostable, or recyclable packaging
+            ♻ Zero plastic waste commitment
+            ♻ Reusable delivery boxes for minimal environmental impact
+            This approach helps reduce plastic pollution while keeping your vegetables fresh.</p>
+        </div>
+      </div>
+
+      <!-- Custom Organic Vegetable Baskets -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/custom-basket.jpg' %}" alt="Custom Vegetable Baskets">
+          <h3>Custom Organic Vegetable Baskets  🛒</h3>
+          <p>Every household has different needs, and we understand that! Our custom organic baskets allow you to:
+            ✅ Pick and choose your favorite vegetables
+            ✅ Select portion sizes based on your family size
+            ✅ Schedule deliveries at your convenience
+            Whether you're a single person who cooks occasionally or a large family looking for bulk organic produce, our customizable baskets ensure you get exactly what you need.</p>
+        </div>
+      </div>
+
+      <!-- Seasonal & Exotic Organic Produce -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/exotic-produce.jpeg' %}" alt="Exotic & Seasonal Produce">
+          <h3>Seasonal & Exotic Organic Produce 🥑</h3>
+          <p>Want to try rare, seasonal, and exotic organic vegetables? We source and deliver hard-to-find organic vegetables such as:
+            🌱 Heirloom tomatoes
+            🌱 Purple carrots
+            🌱 Wild mushrooms
+            🌱 Exotic greens like kale & bok choy
+            🌱 Seasonal produce like pumpkin & butternut squash
+            
+            Our produce changes seasonally, ensuring you always get the freshest and most diverse selection.</p>
+        </div>
+      </div>
+
+      <!-- Organic Fertilizers & Seeds -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/seeds.png' %}" alt="Organic Fertilizers & Seeds">
+          <h3>Organic Fertilizers & Seeds  🌾</h3>
+          <p>For those who love organic gardening, we provide a selection of:
+            🌱 High-quality organic seeds – Non-GMO, untreated, and perfect for home gardens
+            🌱 Natural fertilizers – Compost, manure, and bio-fertilizers to enrich your soil
+            🌱 Gardening kits – Tools & beginner-friendly growing guides
+            
+            If you want to grow your own organic vegetables at home, our organic fertilizers & seeds will help you get started.</p>
+        </div>
+      </div>
+
+      <!-- Farm Membership & Loyalty Program -->
+      <div class="col-md-6">
+        <div class="service-card">
+          <img src="{% static 'assets/img/services/member.jpg' %}" alt="Farm Membership & Loyalty Program">
+          <h3>Farm Membership & Loyalty Program 🎉</h3>
+          <p>We believe in rewarding our loyal customers! With our Farm Membership & Loyalty Program, you get:
+            ✅ Exclusive discounts on organic vegetables & products
+            ✅ Early access to seasonal produce before they sell out
+            ✅ Special members-only offers & giveaways
+            ✅ Earn reward points with every purchase & redeem them for discounts
+            
+            Our membership program is designed for customers who regularly buy organic produce and want extra benefits while supporting sustainable farming.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+  {% include 'footer.html' %}
+
+  <!-- Bootstrap JS -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
